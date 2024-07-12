@@ -1,0 +1,36 @@
+$header-height: 41px;
+
+.header {
+  background-color: purple;
+  padding: 8px;
+  color: white;
+  max-height: $header-height;
+}
+
+.content {
+  padding: 4px;
+}
+
+.video-list {
+  padding-top: 4px;
+  overflow-y: auto;
+  max-height: 500px;
+}
+
+@media screen and (min-width: 768px) {
+  .content {
+    display: grid;
+    grid-template-columns: auto auto;
+    height: calc(100vh - $header-height);
+  }
+
+  .video-list {
+    padding-top: 0;
+    padding-left: 4px;
+    max-height: calc(100vh - $header-height);
+  }
+
+  .player {
+    height: auto;
+  }
+}

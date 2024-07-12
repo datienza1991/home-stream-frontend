@@ -1,0 +1,10 @@
+<vg-player (onPlayerReady)="onPlayerSet($event)">
+  <video
+    [vgMedia]="$any(media)"
+    #media
+    [src]="source"
+    id="singleVideo"
+    preload="auto"
+    controls
+  ></video>
+</vg-player>

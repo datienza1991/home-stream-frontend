@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,18 +11,11 @@ import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
 import { VideoPlaylistComponent } from './components/video-playlist/video-playlist.component';
 
-@NgModule({
-  declarations: [AppComponent, VideoPlayerComponent, VideoPlaylistComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    VgCoreModule,
-    VgControlsModule,
-    VgOverlayPlayModule,
-    VgBufferingModule,
-    HttpClientModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [AppComponent, VideoPlayerComponent, VideoPlaylistComponent],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        VgCoreModule,
+        VgControlsModule,
+        VgOverlayPlayModule,
+        VgBufferingModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { PlayList } from 'src/app/model/IPlayList';
+import { Video } from '../../model/IVideo';
 
 @Component({
   selector: 'app-video-playlist',
@@ -7,10 +7,10 @@ import { PlayList } from 'src/app/model/IPlayList';
   styleUrls: ['./video-playlist.component.scss'],
 })
 export class VideoPlaylistComponent {
-  @Input() public playlist: PlayList[] = [];
+  @Input() public playlist: Video[] = [];
   @Output() public clickPlaylistVideo = new EventEmitter();
 
-  public onClickPlaylistVideo(item: PlayList, index: number) {
+  public onClickPlaylistVideo(item: Video, index: number) {
     this.clickPlaylistVideo.emit({ item: item, index: index });
   }
 }

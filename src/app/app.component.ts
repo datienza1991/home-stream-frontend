@@ -8,10 +8,8 @@ import {
   signal,
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { VgApiService } from '@videogular/ngx-videogular/core';
-import { PlayList } from './model/IPlayList';
-import { PlaylistDataService } from './services/video/playlist-data.service';
-import { Observable, catchError, map, of, single } from 'rxjs';
+import { Video } from './features/video/model/IVideo';
+import { VideoDataService } from './features/video/services/video-data.service';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +19,7 @@ import { Observable, catchError, map, of, single } from 'rxjs';
 export class AppComponent implements OnInit {
   public title: string = 'Home Stream';
   public src: string = '';
-  public playlist: Signal<PlayList[] | undefined> = signal([
+  public playlist: Signal<Video[] | undefined> = signal([
     {
       id: 0,
       title: '',
@@ -31,7 +29,7 @@ export class AppComponent implements OnInit {
   ]);
   public currentIndex = 0;
 
-  private readonly videoDataService = inject(PlaylistDataService);
+  private readonly videoDataService = inject(VideoDataService);
 
   constructor() {
     this.playlist = toSignal(this.videoDataService.fetchAll());

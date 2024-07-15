@@ -1,13 +1,12 @@
 import { TestBed } from '@angular/core/testing';
+import { VideoDataService } from './video-data.service';
 
-import { PlaylistDataService } from './playlist-data.service';
-
-describe('PlayListDataService', () => {
-  let service: PlaylistDataService;
+describe('VideoDataService', () => {
+  let service: VideoDataService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(PlaylistDataService);
+    service = TestBed.inject(VideoDataService);
   });
 
   it('should be created', () => {

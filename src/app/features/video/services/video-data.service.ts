@@ -1,16 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { PlayList } from 'src/app/model/IPlayList';
+import { Video } from '../model/IVideo';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PlaylistDataService {
+export class VideoDataService {
   private readonly http = inject(HttpClient);
   private readonly baseUrl: string = 'http://localhost:3000/api';
 
-  public fetchAll(): Observable<PlayList[]> {
+  public fetchAll(): Observable<Video[]> {
     return this.http
       .get<{ data: { id: number; name: string; url: string }[] }>(
         `${this.baseUrl}/videos`
@@ -24,7 +24,7 @@ export class PlaylistDataService {
                 title: value.name,
                 src: value.url,
                 type: 'video/mp4',
-              } as PlayList)
+              } as Video)
           )
         )
       );

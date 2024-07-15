@@ -1,4 +1,4 @@
-export interface PlayList {
+export interface Video {
   id: number;
   title: string;
   src: string;

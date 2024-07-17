@@ -8,16 +8,16 @@ import { Video } from '../model/IVideo';
 })
 export class VideoDataService {
   private readonly http = inject(HttpClient);
-  private readonly baseUrl: string = 'http://localhost:3000/api';
+  private readonly baseUrl: string = 'http://192.168.1.3/api.php/records';
 
   public fetchAll(): Observable<Video[]> {
     return this.http
-      .get<{ data: { id: number; name: string; url: string }[] }>(
+      .get<{ records: { id: number; name: string; url: string }[] }>(
         `${this.baseUrl}/videos`
       )
       .pipe(
         map((results) =>
-          results.data.map(
+          results.records.map(
             (value) =>
               ({
                 id: value.id,

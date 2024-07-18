@@ -25,7 +25,7 @@ $video-list-height-mobile: 500px;
   );
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 667px) {
   .content {
     display: grid;
     grid-template-columns: auto 282px;
